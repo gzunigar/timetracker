@@ -1,0 +1,1 @@
+Workingdata = new Meteor.Collection('workingdata');

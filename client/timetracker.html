@@ -1,0 +1,63 @@
+ 
+  <head>
+    <meta charset="UTF-8">
+    <title> Welcome to Time Tracker</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" media="screen">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css" media="screen">
+   
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    
+    {{loginButtons}}
+    {{> input}}
+    {{> tracker}}
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+ 
+  </body>
+
+    <Template name="input">
+      <form role="form" id="myform">
+        <div class="form-group">
+         <label for="date-work">Date</label>
+            <input type="date" class="form-control" id="date" placeholder="Enter date">
+        </div>
+        <div class="form-group">
+          <label for="start-time">Start Time</label>
+          <input type="time" class="form-control" id="starttime" placeholder="Hour">
+        </div>
+        <div class="form-group">
+          <label for="end-time">End Time</label>
+          <input type="time" class="form-control" id="endtime" placeholder="Hour">
+        </div>
+        <div class="form-group">
+        <label for="work description">Working on</label>
+        <textarea class="form-control" rows="3" id="description"></textarea>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> Check me out
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </template> 
+    <template name="tracker">
+      <ul class="list-unstyled">
+        {{#each workingdata}}
+        <li>
+            {{date}} {{starttime}} {{endtime}} {{description}} {{user}}
+        </li>
+        {{/each}}
+  </ul>
+    </template>
