@@ -8,6 +8,11 @@ Template.tracker.workingdata = function(){
   return Workingdata.find({}, {sort: {date: -1}});
 }
 
+Template.tracker.myjob = function(){
+
+  return Workingdata.find({user: Meteor.userId()}, {sort: {date: -1}});
+}
+
 Template.input.events = {
   'submit #myform' : function (event) {
      event.preventDefault();
@@ -17,9 +22,9 @@ Template.input.events = {
         var $start = $('#starttime');
         var $end = $('#endtime');
         var $description= $('#description');
+        
         }
-        debugger;
-      Workingdata.insert({
+        Workingdata.insert({
         user: $user,
         date: $date.val(),
         starttime: $start.val(),

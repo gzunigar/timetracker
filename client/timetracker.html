@@ -54,10 +54,16 @@
     </template> 
     <template name="tracker">
       <ul class="list-unstyled">
+        {{#each myjob}}
+        
+           <br>Fecha {{date}} ; Inicio {{starttime}} ; Final {{endtime}} ; Tarea {{description}}
+        
+        {{/each}}
         {{#each workingdata}}
         <li>
-            {{date}} {{starttime}} {{endtime}} {{description}} {{user}}
+           <br>Fecha {{date}} Inicio {{starttime}} Final {{endtime}} Tarea {{description}}  Usuario{{user}} <li>
         </li>
         {{/each}}
+
   </ul>
     </template>
